@@ -35,15 +35,16 @@ function onSubmitForm(e) {
         'Sorry, there are no images matching your search query. Please try again.'
       );
       return;
+    } else {
+      Notify.info(`Hooray! We found ${data.totalHits} images.`);
+      refs.galleryEl.insertAdjacentHTML(
+        'beforeend',
+        createMarcupGallery(data.hits)
+      );
+      gallery.refresh();
+      smoothScroll();
+      refs.moreBtnEl.classList.remove('visually-hidden');
     }
-    Notify.info(`Hooray! We found ${data.totalHits} images.`);
-    refs.galleryEl.insertAdjacentHTML(
-      'beforeend',
-      createMarcupGallery(data.hits)
-    );
-    gallery.refresh();
-    smoothScroll();
-    refs.moreBtnEl.classList.remove('visually-hidden');
   });
 
   e.target.reset();
