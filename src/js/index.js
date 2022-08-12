@@ -19,8 +19,6 @@ const gallery = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-// refs.moreBtnEl.disabled = true;
-
 function onSubmitForm(e) {
   e.preventDefault();
   refs.galleryEl.innerHTML = '';
@@ -44,6 +42,7 @@ function onSubmitForm(e) {
       createMarcupGallery(data.hits)
     );
     gallery.refresh();
+    smoothScroll();
     refs.moreBtnEl.classList.remove('visually-hidden');
   });
 
@@ -56,7 +55,19 @@ function onClickMoreBtn(e) {
       'beforeend',
       createMarcupGallery(data.hits)
     );
+    smoothScroll();
     gallery.refresh();
+  });
+}
+
+function smoothScroll() {
+  const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 4,
+    behavior: 'smooth',
   });
 }
 
