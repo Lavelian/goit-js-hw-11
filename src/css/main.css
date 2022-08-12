@@ -1,0 +1,45 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+.btn-submit {
+  margin-left: 5px;
+}
+.gallery {
+  margin-bottom: 10px;
+  justify-content: center;
+  display: flex;
+  gap: 55px;
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+}
+.info {
+  padding: 10px;
+  color: black;
+  border: 0px 1px 1px 1px solid #afb1b8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+.more-btn {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+input {
+  outline: none;
+}
+.btns{
+    border: none;
+      cursor: pointer;
+      color: aliceblue;
+      background-color: #2196f3;
+      border-radius: 20px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
