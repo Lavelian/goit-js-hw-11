@@ -22,7 +22,10 @@ function onSubmitForm(e) {
   e.preventDefault();
   refs.galleryEl.innerHTML = '';
 
-  onSerchQuery(e.currentTarget.elements.searchQuery.value);
+  if (e.currentTarget.elements.searchQuery.value === '') {
+    return;
+  }
+  serchImage.query = e.currentTarget.elements.searchQuery.value;
   serchImage.resetPage();
 
   serchImage.fetchImage().then(data => {
@@ -42,13 +45,6 @@ function onSubmitForm(e) {
   });
 
   e.target.reset();
-}
-
-function onSerchQuery(data) {
-  if (!data) {
-    return;
-  }
-  serchImage.query = data;
 }
 
 function onClickMoreBtn(e) {
