@@ -11,12 +11,15 @@ const refs = {
   galleryEl: document.querySelector('.gallery'),
   moreBtnEl: document.querySelector('.more-btn'),
 };
+
+refs.moreBtnEl.classList.add('visually-hidden');
+
 const gallery = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
 
-refs.moreBtnEl.disabled = true;
+// refs.moreBtnEl.disabled = true;
 
 function onSubmitForm(e) {
   e.preventDefault();
@@ -41,7 +44,7 @@ function onSubmitForm(e) {
       createMarcupGallery(data.hits)
     );
     gallery.refresh();
-    refs.moreBtnEl.disabled = false;
+    refs.moreBtnEl.classList.remove('visually-hidden');
   });
 
   e.target.reset();
